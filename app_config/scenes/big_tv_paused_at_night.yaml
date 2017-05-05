@@ -1,0 +1,17 @@
+  - name: "Big TV Paused at Night"
+    entities:
+      group.lights_on_playing_tv:
+        state: on
+        brightness: 120
+        #xy_color: 0.5266, 0.4133
+        #rgb_color: [241, 167, 61]
+        color_temp: 500
+      group.lights_off_playing_tv:
+        state: on
+        brightness: 90
+        #xy_color: 0.5266, 0.4133
+        #rgb_color: [241, 167, 61]
+        color_temp: 400
+      light.ge_12729_3way_dimmer_switch_level_2_0:
+        state: on
+        brightness: 60

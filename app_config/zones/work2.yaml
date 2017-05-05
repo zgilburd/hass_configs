@@ -1,0 +1,5 @@
+- name: !secret work2_name
+  latitude: !secret work2_lat
+  longitude: !secret work2_long
+  radius: 200
+  icon: !secret work2_icon

@@ -1,0 +1,12 @@
+- name: "kitch1"
+  platform: mqtt
+  state_topic: "smartthings/Kitch1/switch"
+  command_topic: "smartthings/Kitch1/switch"
+  brightness_state_topic: 'smartthings/Kitch1/level'
+  brightness_command_topic: 'smartthings/Kitch1/level'
+  brightness_scale: 99
+  white_value_scale: 99
+  payload_on: "on"
+  payload_off: "off"
+  optimistic: false
+  retain: true

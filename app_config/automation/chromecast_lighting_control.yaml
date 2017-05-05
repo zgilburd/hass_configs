@@ -1,0 +1,32 @@
+  - alias: 'Chromecast: Dim on Play'
+    trigger:
+      platform: state
+      entity_id: media_player.big_tv
+      state: 'playing'
+    condition:
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.big_tv_playing_at_night
+  - alias: 'Chromecast: Brighten on Pause'
+    trigger:
+      - platform: state
+        entity_id: media_player.big_tv
+        from: 'playing'
+        to:  'idle'
+      - platform: state
+        entity_id: media_player.big_tv
+        from: 'playing'
+        to:  'off'
+      - platform: state
+        entity_id: media_player.big_tv
+        state: 'paused'
+    condition:
+      - condition: state
+        entity_id: sun.sun
+        state: 'below_horizon'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.big_tv_paused_at_night

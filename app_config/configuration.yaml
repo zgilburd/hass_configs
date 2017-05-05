@@ -1,0 +1,184 @@
+homeassistant:
+  name: "Z² built this"
+  latitude: !secret home_lat
+  longitude: !secret home_long
+  elevation: !secret home_elev
+  unit_system: imperial
+  time_zone: !secret tz
+  customize: !include customize.yaml
+  customize_glob: !include glob.yaml
+
+logger:
+  default: info
+
+recorder:
+  purge_days: 101
+  db_url: !secret db
+
+frontend:
+
+config:
+
+http:
+  api_password: !secret http_password
+
+updater:
+
+discovery:
+
+conversation:
+
+history:
+
+logbook:
+
+sun:
+
+sensor: !include sensor.yaml
+binary_sensor: !include_dir_merge_list binary_sensors
+
+tts:
+  platform: google
+
+media_player:
+  - platform: plex
+  - platform: cast
+  - platform: sonos
+  - platform: itunes
+    host: !secret itunes_host
+
+wink:
+  access_token: !secret wink 
+
+switch: !include_dir_merge_list switches
+
+group: !include groups.yaml
+
+script: !include_dir_merge_named scripts
+
+mqtt: !include mqtt.yaml
+
+device_tracker: !include trackers.yaml
+
+zone: !include_dir_merge_list zones
+
+scene: !include_dir_merge_list scenes
+
+automation: !include_dir_merge_list automation
+
+input_select: !include_dir_merge_named input_select
+
+zwave: !include zwave.yaml
+
+octoprint:
+  host: !secret octoprint_host
+  api_key: !secret octoprint_api
+
+#light: !include_dir_merge_list lights
+
+light:
+  - name: "kitch1"
+    platform: mqtt
+    state_topic: "smartthings/Kitch1/switch"
+    command_topic: "smartthings/Kitch1/switch"
+    brightness_state_topic: 'smartthings/Kitch1/level'
+    brightness_command_topic: 'smartthings/Kitch1/level'
+    brightness_scale: 99
+    white_value_scale: 99
+    payload_on: "on"
+    payload_off: "off"
+    optimistic: false
+    retain: true
+light 2:
+  - name: "kitch2"
+    state_topic: "smartthings/Kitch2/switch"
+    command_topic: "smartthings/Kitch2/switch"
+    brightness_state_topic: 'smartthings/Kitch2/level'
+    brightness_command_topic: 'smartthings/Kitch2/level'
+    brightness_scale: 99
+    white_value_scale: 99
+    payload_on: "on"
+    payload_off: "off"
+    optimistic: false
+    retain: true
+    platform: mqtt
+light 4:
+  - name: "bedroom_lamp"
+    platform: mqtt
+    state_topic: "smartthings/Bedroom Lamp/switch"
+    command_topic: "smartthings/Bedroom Lamp/switch"
+    brightness_state_topic: 'smartthings/Bedroom Lamp/level'
+    brightness_command_topic: 'smartthings/Bedroom Lamp/level'
+    brightness_scale: 99
+    white_value_scale: 99
+    payload_on: "on"
+    payload_off: "off"
+    optimistic: false
+    retain: true
+light 5:
+  - name: "upstairs_hall"
+    platform: mqtt
+    state_topic: "smartthings/Bedroom Hall/switch"
+    command_topic: "smartthings/Bedroom Hall/switch"
+    brightness_state_topic: 'smartthings/Bedroom Hall/level'
+    brightness_command_topic: 'smartthings/Bedroom Hall/level'
+    brightness_scale: 99
+    white_value_scale: 99
+    payload_on: "on"
+    payload_off: "off"
+    optimistic: false
+    retain: true
+light 6:
+  - name: "offlight1"
+    platform: mqtt
+    state_topic: "smartthings/Offlight1/switch"
+    command_topic: "smartthings/Offlight1/switch"
+    brightness_state_topic: 'smartthings/Offlight1/level'
+    brightness_command_topic: 'smartthings/Offlight1/level'
+    color_temp_state_topic: 'smartthings/Offlight1/colorTemperature'
+    color_temp_command_topic: 'smartthings/Offlight1/colorTemperature'
+    color_temp_value_template: "{{ (1000000/float(value)) | int }}"
+    brightness_scale: 99
+    payload_on: "on"
+    payload_off: "off"
+    optimistic: false
+    retain: true
+light 7:
+  - name: "offlight2"
+    platform: mqtt
+    state_topic: "smartthings/Offlight2/switch"
+    command_topic: "smartthings/Offlight2/switch"
+    brightness_state_topic: 'smartthings/Offlight2/level'
+    brightness_command_topic: 'smartthings/Offlight2/level'
+    color_temp_state_topic: 'smartthings/Offlight2/colorTemperature'
+    color_temp_command_topic: 'smartthings/Offlight2/colorTemperature'
+    color_temp_value_template: "{{ (1000000/float(value)) | int }}"
+    brightness_scale: 99
+    payload_on: "on"
+    payload_off: "off"
+    optimistic: false
+    retain: true
+light 8:
+  - name: "exterior_front_door"
+    platform: mqtt
+    state_topic: "smartthings/Front Exterior Light/switch"
+    command_topic: "smartthings/Front Exterior Light/switch"
+    brightness_state_topic: 'smartthings/Front Exterior Light/level'
+    brightness_command_topic: 'smartthings/Front Exterior Light/level'
+    brightness_scale: 99
+    payload_on: "on"
+    payload_off: "off"
+    optimistic: false
+    retain: true
+light 9:
+  - name: "master_bedroom_entrance"
+    platform: mqtt
+    state_topic: "smartthings/Z Bedroom Entrance/switch"
+    command_topic: "smartthings/Z Bedroom Entrance/switch"
+    brightness_state_topic: 'smartthings/Z Bedroom Entrance/level'
+    brightness_command_topic: 'smartthings/Z Bedroom Entrance/level'
+    brightness_scale: 99
+    payload_on: "on"
+    payload_off: "off"
+    optimistic: false
+    retain: true

@@ -1,0 +1,40 @@
+- platform: yr
+  monitored_conditions:
+    - temperature
+    - symbol
+    - precipitation
+    - windSpeed
+    - pressure
+    - windDirection
+    - humidity
+    - fog
+    - cloudiness
+    - dewpointTemperature
+
+- platform: command_line
+  friendly_name: "Hugo Weather Light"
+  alias: "Hugo Weather Light"
+  command: "python3 /home/zgilburd/git/hass/set_weather_light.py"
+  scan_interval: 180
+
+- platform: template
+  friendly_name: "empty house"
+  sensors:
+    empty_house:
+      value_template: >-
+        {% 
+          if (is_state('device_tracker.zgilburd_zs8', 'home') or
+          is_state('device_tracker.zandra_v20', 'home')) 
+        %} 
+          not_empty
+        {% else %} 
+          empty
+        {% endif %}
+
+- platform: octoprint
+  name: QIDI X-One
+  monitored_conditions:
+    - Job Percentage
+    - Current State
+    - Temperatures
+

@@ -1,0 +1,16 @@
+- name: "Before Sunset"
+  entities:
+    light.chair_lamp_2:
+      state: on
+      color_temp: 400
+      brightness: 100
+    light.ge_12729_3way_dimmer_switch_level_2_0:
+      state: on
+      brightness: 50
+    light.kitch1:
+      state: on
+      brightness: 10
+    light.south_hall:
+      state: on
+      color_temp: 400
+      brightness: 100

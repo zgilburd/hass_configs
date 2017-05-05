@@ -1,0 +1,15 @@
+- alias: "Speaker on while playing"
+  trigger:
+    platform: template
+    value_template: >-
+      {% if 
+        (is_state('switch.speakers', 'off') and 
+        is_state('media_player.lab', 'playing')) 
+      %}
+        true
+      {% else %}
+        false
+      {% endif %}
+  action:
+    - service: switch.turn_on
+      entity_id: switch.speakers

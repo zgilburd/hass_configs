@@ -1,0 +1,17 @@
+  - name: "Big TV Playing at Night"
+    entities:
+      group.lights_off_playing_tv: off
+      light.kitch2: off
+      light.kitch1:
+        state: on
+        brightness: 10
+      light.ge_12729_3way_dimmer_switch_level_2_0:
+        state: on
+        brightness: 20
+      light.upstairs_hall:
+        state: on
+        brightness: 10
+      group.lights_on_playing_tv:
+        state: on
+        brightness: 1
+        color_temp: 500

@@ -1,0 +1,6 @@
+"light.kitch*":
+  icon: mdi:barley
+  friendly_name: Overhead Light
+
+"light.*_bay":
+  icon: mdi:window-closed

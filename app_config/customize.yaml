@@ -1,0 +1,40 @@
+script.zack_home:
+  icon: mdi:human-handsup
+switch.big_tv:
+  icon: mdi:television
+light.ge_12729_3way_dimmer_switch_level_2_0:
+  friendly_name: "Entry Stairs"
+  icon: mdi:stairs
+switch.speakers:
+  friendly_name: Office Speakers
+  icon: mdi:saxophone
+media_player.sonos_airplay_airtunes_speaker:
+  friendly_name: "Airplay/Sonos Link"
+  icon: mdi:airplay
+media_player.itunes:
+  friendly_name: "Zack's iTunes"
+light.upstairs_hall:
+  friendly_name: Bedroom Hallway
+media_player.sonos:
+  friendly_name: "Cast/Sonos Link"
+  icon: mdi:cast
+light.northhall:
+  friendly_name: North Hall Light
+light.downhall1:
+  friendly_name: South Hall Light
+light.transformer:
+  icon: mdi:white-balance-incandescent
+light.hugo:
+  icon: mdi:cisco-webex
+light.chair_lamp_2:
+  icon: mdi:library
+switch.party_favors:
+  icon: mdi:medical-bag
+media_player.big_tv:
+  friendly_name: Big TV Chromecast
+device_tracker.zgilburd_zs8:
+  friendly_name: Zack
+device_tracker.zandra_v20:
+  friendly_name: Zandra
+sensor.command_sensor:
+  friendly_name: "Hugo Weather Light"

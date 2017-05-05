@@ -1,0 +1,9 @@
+- alias: "Office Presence Automation"
+  trigger:
+    platform: zone
+    entity_id: device_tracker.zgilburd_zs8
+    zone: zone.home
+    event: enter
+  action:
+    service: scene.turn_on
+    entity_id: scene.office_presence_scene

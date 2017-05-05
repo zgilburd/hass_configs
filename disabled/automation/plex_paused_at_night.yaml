@@ -1,0 +1,26 @@
+  - alias: 'Plex Paused at at Night'
+    trigger:
+      - platform: state
+        entity_id: sensor.plex_status
+        from: 'playing'
+        to:  'False'
+      - platform: state
+        from: 'paused'
+        to: 'False'
+        entity_id: sensor.plex_status
+      - platform: state
+        entity_id: sensor.plex_status
+        state: 'paused'
+    condition:
+      condition: time
+      after: '19:00:00'
+      before: '23:59:00'
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - sun
+    action:
+      - service: scene.turn_on
+        entity_id: scene.big_tv_paused_at_night

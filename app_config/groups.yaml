@@ -1,0 +1,190 @@
+default_view:
+  name: "Main"
+  view: yes
+  entities:
+    - group.all_lighting
+    - group.switches
+    - device_tracker.zgilburd_zs8
+    - device_tracker.zandra_v20
+    - sensor.yr_symbol
+    - binary_sensor.zwink
+    - binary_sensor.octoprint
+    - binary_sensor.MQTT
+    - group.office
+
+sonos_speakers:
+  name: Sonos Speakers
+  entities: 
+    - media_player.mr_fantastic
+    - media_player.the_thing
+    - media_player.human_torch
+
+kitchen_overhead:
+  icon: mdi:barley
+  name: Kitchen Overhead
+  entities:
+    - light.kitch1
+    - light.kitch2
+
+office:
+  name: "The Lab"
+  icon: mdi:flask-outline
+  entities:
+    - group.office_lights
+    - switch.speakers
+    - script.zack_home
+
+office_lights:
+  name: "Lab Lights"
+  icon: mdi:flask-outline
+  entities:
+    - light.offlight1
+    - light.offlight2
+
+bedroom:
+  name: Bedroom Lights
+  icon: mdi:hotel
+  entities:
+    - light.master_bedroom_entrance
+    - light.bedroom_lamp
+    - light.upstairs_hall
+
+middle:
+  name: Living Room
+  view: yes
+  entities:
+  - media_player.tv_surround
+  - media_player.big_tv
+  - group.tv_control
+  - group.hue_only
+  - group.all_lighting
+  - media_player.plex
+
+upstairs:
+  view: yes
+  name: Upstairs
+  entities:
+    - script.sonos_no_upstairs
+    - group.bedroom
+    - light.upstairs_hall
+    - media_player.human_torch
+
+all_lighting:
+  name: Lighting Panel
+  icon: mdi:alert-outline
+  entities:
+    - light.ge_12729_3way_dimmer_switch_level_2_0 
+    - group.kitchen_overhead
+    - light.transformer
+    - group.middle_hallway
+    - group.office_lights
+    - group.bay_window
+    - group.bedroom
+
+switches:
+  name: All Switches
+  entities:
+    - switch.big_tv
+    - switch.speakers
+    - switch.party_favors
+
+Music:
+  view: yes
+  entities:
+    - script.sonos_no_upstairs
+    - group.sonos_speakers
+    - script.sonos_party_mode
+    - script.sonos_join_all_to_torch
+    - script.sonos_join_all_to_thing
+    - media_player.sonos
+    - media_player.itunes
+    - media_player.sonos_airplay_airtunes_speaker
+
+tv_control:
+  name: TV Power
+  entities:
+    - switch.big_tv
+
+hue_only:
+  name: Hues Only
+  entities:
+    - light.hugo
+    - light.northhall
+    - light.south_hall
+    - light.transformer
+    - light.north_bay
+    - light.south_bay
+    - light.chair_lamp_2
+
+automation:
+  view: yes
+  name: Automations
+  entities:
+    - group.tv_lighting_automation
+    - group.ext_front_light_autos
+    - group.vacation_automation
+    - group.auto_lights
+    - automation.office_presence_automation
+    - automation.away_from_home_autooff
+    - automation.raise_lights_before_sunset
+
+vacation_automation:
+  name: Vacation Automation
+  entities:
+    - automation.vacation_evening_lighting
+    - automation.vacation_night_lighting
+
+tv_lighting_automation:
+  name: Chromecast Automation
+  entities:
+    - automation.chromecast_dim_on_play
+    - automation.chromecast_brighten_on_pause
+
+ext_front_light_autos:
+  name: Exterior Front Light Automation
+  entities:
+    - automation.exterior_front_light_auto_on
+    - automation.exterior_front_light_shut_off
+    - automation.exterior_front_light_raise_brightness
+
+auto_lights:
+  name: Auto-only Lights
+  entities:
+    - light.exterior_front_door
+
+lights_on_playing_tv:
+  name: Lights to turn on while playing
+  entities:
+    - light.hugo
+    - light.northhall
+    - light.north_bay
+
+lights_off_playing_tv:
+  name: Lights turned off while playing
+  entities:
+    - light.transformer
+    - light.south_hall
+    - light.south_bay
+    - light.chair_lamp_2
+    - light.kitch2
+
+bay_window:
+  name: Bay Window
+  icon: mdi:window-closed
+  entities:
+    - light.north_bay
+    - light.south_bay
+    - light.chair_lamp_2
+
+middle_hallway:
+  name: Hallway
+  entities:
+    - light.northhall
+    - light.south_hall
+    - light.hugo
+
+danger_zone:
+  name: "Danger Zone"
+  view: yes
+  entities:
+    - switch.3d_printer

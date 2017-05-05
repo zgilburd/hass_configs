@@ -1,0 +1,28 @@
+  - alias: "Exterior Front Light Auto On"
+    trigger:
+      platform: sun
+      event: sunset
+    action:
+      - delay: '{{ "0:" ~ ((range(15, 38) | random) | int)  ~ ":" ~  ((range(0, 59) | random) | int) }}'
+      - service: light.turn_on
+        entity_id: light.exterior_front_door
+        data:
+          brightness: 150
+  - alias: "Exterior Front Light Raise Brightness"
+    trigger:
+      platform: sun
+      event: sunset
+      offset: "00:30:00"
+    action:
+      - delay: '{{ "0:" ~ ((range(11, 28) | random) | int)  ~ ":" ~  ((range(0, 59) | random) | int) }}'
+      - service: light.turn_on
+        entity_id: light.exterior_front_door
+        data:
+          brightness: 255
+  - alias: "Exterior Front Light Shut Off"
+    trigger:
+      platform: sun
+      event: sunrise
+    action:
+      service: light.turn_off
+      entity_id: light.exterior_front_door

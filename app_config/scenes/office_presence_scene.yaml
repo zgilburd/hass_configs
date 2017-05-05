@@ -1,0 +1,11 @@
+  - name: "Office Presence Scene"
+    entities:
+      light.offlight1:
+        state: on
+        rgb_color: [4,0,198]
+        brightness: 175
+      light.offlight2:
+        state: on
+        rgb_color: [4,198,0]
+        brightness: 175
+      switch.speakers: on

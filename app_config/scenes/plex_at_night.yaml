@@ -1,0 +1,11 @@
+  - name: "Plex at Night"
+    entities:
+      homeassistant.turn_off:
+        group.kitchen_overhead
+        group.office_lights
+        group.entry_stairs
+        group.bedroom
+      group.hue_only:
+        state: on
+        brightness: 15
+        color_temp: 500

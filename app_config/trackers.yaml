@@ -1,0 +1,4 @@
+platform: owntracks
+max_gps_accuracy: 175
+waypoints: True
+track_new_devices: false

@@ -1,0 +1,57 @@
+  - alias: 'Vacation: Evening Lighting'
+    trigger:
+      - platform: sun
+        event: sunset
+    condition:
+      condition: state
+      entity_id: sensor.empty_house
+      state: empty
+      for:
+        hours: 14
+    action:
+      - delay: '{{ ((range(0, 1) | random) | int) ~ ":" ~ ((range(3, 29) | random) | int)  ~ ":" ~  ((range(0, 59) | random) | int) }}'
+      - service: light.turn_on
+        entity_id: group.bay_window
+        data:
+          color_temp: 400
+          brightness: 200
+      - delay: '{{ "0:" ~ ((range(12, 51) | random) | int)  ~ ":" ~  ((range(0, 59) | random) | int) }}'
+      - service: light.turn_on
+        entity_id: group.office_lights
+        data:
+          brightness: 200
+      - delay: '{{ ((range(1, 3) | random) | int) ~ ":" ~ ((range(0, 59) | random) | int)  ~ ":" ~  ((range(0, 59) | random) | int) }}'
+      - service: light.turn_off
+        entity_id: group.bay_window
+      - delay: '{{ "1:" ~ ((range(5, 59) | random) | int)  ~ ":" ~  ((range(0, 59) | random) | int) }}'
+      - service: light.turn_off
+        entity_id: group.office_lights
+  - alias: 'Vacation: Night Lighting'
+    trigger:
+      - platform: sun
+        event: sunset
+        offset: '2:30:00'
+    condition:
+      condition: state
+      entity_id: sensor.empty_house
+      state: empty
+      for:
+        hours: 14
+    action:
+      - delay: '{{ ((range(0, 1) | random) | int) ~ ":" ~ ((range(7, 55) | random) | int)  ~ ":" ~  ((range(0, 59) | random) | int) }}'
+      - service: light.turn_on
+        entity_id: group.bay_window
+        data:
+          color_temp: 400
+          brightness: 200
+      - delay: '{{ "0:" ~ ((range(31, 59) | random) | int)  ~ ":" ~  ((range(0, 59) | random) | int) }}'
+      - service: light.turn_on
+        entity_id: light.bedroom_lamp
+        data:
+          brightness: 200
+      - delay: '{{ "1:" ~ ((range(3, 43) | random) | int)  ~ ":" ~  ((range(0, 59) | random) | int) }}'
+      - service: light.turn_off
+        entity_id: group.bay_window
+      - delay: '{{ "0:" ~ ((range(30, 59) | random) | int)  ~ ":" ~  ((range(0, 59) | random) | int) }}'
+      - service: light.turn_off
+        entity_id: light.bedroom_lamp

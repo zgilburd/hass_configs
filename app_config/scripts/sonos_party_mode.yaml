@@ -1,0 +1,11 @@
+sonos_party_mode:
+  alias: "Join ALL to Mr. Fantastic"
+  sequence:
+   - service: media_player.sonos_join
+     data:
+       master: media_player.tv_surround
+       entity_id: 
+         - media_player.kitchen
+         - media_player.fireplace_mantle
+         - media_player.bathroom
+         - media_player.master_bedroom

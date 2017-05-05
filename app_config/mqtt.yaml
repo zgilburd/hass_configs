@@ -1,0 +1,5 @@
+broker: !secret mqtt_host
+username: !secret mqtt_uname
+password: !secret mqtt_pass
+port: !secret mqtt_port
+client_id: hass-zt

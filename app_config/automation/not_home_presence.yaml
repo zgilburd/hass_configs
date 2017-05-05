@@ -1,0 +1,26 @@
+  - alias: 'Away from Home Auto-Off'
+    trigger:
+      - platform: state
+        entity_id: sensor.empty_house
+        state: 'empty'
+        for:
+          minutes: 10
+    condition:
+      condition: or
+      conditions:
+      - condition: state
+        entity_id: group.lighting_panel
+        state: 'on'
+      - condition: state
+        entity_id: group.all_switches
+        state: 'on'
+    action:
+      - service: media_player.media_pause
+      - delay: '00:00:03'
+      - service: switch.turn_off
+        entity_id:
+          - switch.speakers
+          - switch.big_tv
+      - delay: '{{ "0:" ~ ((range(2, 19) | random) | int) ~ ":00" }}'
+      - service: light.turn_off
+        entity_id: group.lighting_panel

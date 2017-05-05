@@ -1,0 +1,8 @@
+usb_path: /dev/ttyACM0
+config_path: /usr/local/lib/python3.5/dist-packages/libopenzwave-0.3.2-py3.5-linux-x86_64.egg/config
+autoheal: False
+polling_interval: 60000
+device_config:
+  light.ge_12729_3way_dimmer_switch_level_2_0:
+    polling_intensity: 1
+    refresh_value: true

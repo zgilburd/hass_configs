@@ -1,0 +1,6 @@
+- platform: command_line
+  command: 'netstat -na |grep 9883 > /dev/null && (echo "ON") || (echo "OFF")'
+  name: 'MQTT'
+  device_class: 'connectivity'
+  payload_on: "ON"
+  payload_off: "OFF"

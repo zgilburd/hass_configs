@@ -1,0 +1,6 @@
+sonos_no_upstairs:
+  alias: "Sleepy Folks Upstairs"
+  sequence:
+   - service: media_player.sonos_unjoin
+     data:
+       entity_id: media_player.master_bedroom

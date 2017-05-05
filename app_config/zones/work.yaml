@@ -1,0 +1,5 @@
+- name: !secret work_name
+  latitude: !secret work_lat
+  longitude: !secret work_long
+  radius: 250
+  icon: mdi:wrench
